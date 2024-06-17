@@ -1,0 +1,6 @@
+click
+boto3
+colorama
+pyfiglet
+termcolor
+requests
