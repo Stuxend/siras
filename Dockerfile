@@ -23,4 +23,4 @@ ENV PATH=/root/.local:$PATH
 ARG PYTHON_ENV_ARG
 ENV PYTHONPATH=/root/.local/python${PYTHON_ENV_ARG}/site-packages
 
-ENTRYPOINT [ "python", "./droid.py" ]
+ENTRYPOINT [ "python", "./siras.py" ]

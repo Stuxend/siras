@@ -11,7 +11,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 ##### define standard configurations ####
 
 # Setup the verbose logger
-logger = logging.getLogger('cloud-droid')
+logger = logging.getLogger('siras')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Setup timestamp
@@ -22,12 +22,12 @@ region = os.environ['AWS_DEFAULT_REGION']
 
 def CTrailSmoker():
     try:
-        name = "droid_smoke_cloudtrail"
-        bucket_name = "droid-smoke-cloudtrail"
+        name = "siras_smoke_cloudtrail"
+        bucket_name = "siras-smoke-cloudtrail"
         TAG = [
             {"Key": "Department", "Value": "security"},
-            {"Key": "Program", "Value": "droid"},
-            {"Key": "Purpose", "Value": "droid"}
+            {"Key": "Program", "Value": "siras"},
+            {"Key": "Purpose", "Value": "siras"}
         ]
         # policy for bucket
         policy = {
@@ -40,7 +40,7 @@ def CTrailSmoker():
                         "Service": "cloudtrail.amazonaws.com"
                     },
                     "Action": "s3:GetBucketAcl",
-                    "Resource": "arn:aws:s3:::droid-smoke-cloudtrail"
+                    "Resource": "arn:aws:s3:::siras-smoke-cloudtrail"
                 },
                 {
                     "Sid": "AWSCloudTrailWrite20150319",
@@ -49,7 +49,7 @@ def CTrailSmoker():
                         "Service": "cloudtrail.amazonaws.com"
                     },
                     "Action": "s3:PutObject",
-                    "Resource": "arn:aws:s3:::droid-smoke-cloudtrail/*",
+                    "Resource": "arn:aws:s3:::siras-smoke-cloudtrail/*",
                     "Condition": {
                         "StringEquals": {
                             "s3:x-amz-acl": "bucket-owner-full-control"

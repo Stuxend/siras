@@ -17,7 +17,7 @@ import gzip
 iso_now_time = datetime.datetime.now().isoformat()
 
 
-def droid_logger(name):
+def siras_logger(name):
     # logger settings
     logger = logging.getLogger(name)
     log_format = "%(asctime)s [%(levelname)s]: %(filename)s(%(funcName)s:%(lineno)s) >> %(message)s"
@@ -32,7 +32,7 @@ def droid_logger(name):
     return logger
 
 
-def droid_s3_logger(name):
+def siras_s3_logger(name):
     # logger settings
     log_stringio = io.StringIO()
     log_format = "%(asctime)s [%(levelname)s]: %(filename)s(%(funcName)s:%(lineno)s) >> %(message)s"
@@ -56,9 +56,9 @@ def s3Log(body):
     s3 = boto3.resource('s3', region_name=os.environ['AWS_REGION'])
     year = datetime.datetime.now().strftime("%Y")
     month = datetime.datetime.now().strftime("%m")
-    filename = "droid-LOG" + 'T' + iso_now_time + ".log.gz"
+    filename = "siras-LOG" + 'T' + iso_now_time + ".log.gz"
     bucketID = os.environ['BUCKETS3']
-    key = 'logs/droid/' + year + '/' + month + '/' + filename
+    key = 'logs/siras/' + year + '/' + month + '/' + filename
 
     with gzip.GzipFile(fileobj=buf, mode='wb') as gfh:
         with io.TextIOWrapper(gfh, encoding='utf-8') as wrapper:

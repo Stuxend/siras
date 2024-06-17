@@ -35,7 +35,7 @@ docker run --rm \
     -e AWS_SECRET_ACCESS_KEY \
     -e AWS_SESSION_TOKEN \
     -e AWS_DEFAULT_REGION=us-east-1 \
-    cloud-droid -s XXXX -B XXXX
+    siras -s XXXX -B XXXX
 ```
 
 #### Mandatory command options for running ***siras***

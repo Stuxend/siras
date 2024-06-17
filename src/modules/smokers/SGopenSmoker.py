@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 ##### define standard configurations ####
 
 # Setup the verbose logger
-logger = logging.getLogger('cloud-droid')
+logger = logging.getLogger('siras')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Setup timestamp
@@ -21,11 +21,11 @@ iso_now_time = datetime.datetime.now().isoformat()
 def SGopenSmoker():
     tags = [
         {"Key": "Department", "Value": "security"},
-        {"Key": "Program", "Value": "droid"},
-        {"Key": "Purpose", "Value": "droid"}
+        {"Key": "Program", "Value": "siras"},
+        {"Key": "Purpose", "Value": "siras"}
     ]
-    description = 'droid smoke security group ' + iso_now_time
-    group_name = 'droid_smoke_group'
+    description = 'siras smoke security group ' + iso_now_time
+    group_name = 'siras_smoke_group'
     
     ec2 = boto3.client('ec2')
     response = ec2.describe_vpcs()

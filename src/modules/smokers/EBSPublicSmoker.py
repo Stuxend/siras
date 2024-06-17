@@ -17,7 +17,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 ##### define standard configurations ####
 
 # Setup the verbose logger
-logger = logging.getLogger('cloud-droid')
+logger = logging.getLogger('siras')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Setup timestamp

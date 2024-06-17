@@ -8,12 +8,12 @@ import os
 import time
 
 # Setup the verbose logger
-logger = logging.getLogger('cloud-droid')
+logger = logging.getLogger('siras')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Standard configurations
 region = os.environ['AWS_DEFAULT_REGION']
-bucket_name = f"droid-smoke-s3public-nuke-{datetime.datetime.now().date()}"
+bucket_name = f"siras-smoke-s3public-nuke-{datetime.datetime.now().date()}"
 
 bucket_policy = {
     'Version': '2012-10-17',
@@ -28,8 +28,8 @@ bucket_policy = {
 
 tags = [
     {"Key": "Department", "Value": "security"},
-    {"Key": "Program", "Value": "droid"},
-    {"Key": "Purpose", "Value": "droid"}
+    {"Key": "Program", "Value": "siras"},
+    {"Key": "Purpose", "Value": "siras"}
 ]
 
 def S3PublicSmoker():

@@ -9,4 +9,4 @@ init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
 
 
 def home():
-    cprint(figlet_format(' CLOUD-DROID '))
+    cprint(figlet_format(' siras '))

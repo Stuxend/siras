@@ -16,7 +16,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 ##### define standard configurations ####
 
 # Setup the verbose logger
-logger = logging.getLogger('cloud-droid')
+logger = logging.getLogger('siras')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Setup timestamp
@@ -36,18 +36,18 @@ def awsConsoleAuthSmoker():
         'Origin': 'https://signin.aws.amazon.com',
         'Upgrade-Insecure-Requests': '1',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'droid (Security Incident Response Automated Simulations)',
+        'User-Agent': 'siras (Security Incident Response Automated Simulations)',
         'Referer': 'https://signin.aws.amazon.com/oauth?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A'+account_id+'%3Auser%2Fhomepage&response_type=code&iam_user=true&account='+account_id,
     }
     data = {
         'action': 'iam-user-authentication',
         'account': account_id,
-        'username': 'droid-testing',
+        'username': 'siras-testing',
         'password': 'fake123123fake',
         'client_id': 'arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage',
         'redirect_uri': 'https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue'
     }
-    logger.info(' testing user: droid-testing into '+account_id+' account')
+    logger.info(' testing user: siras-testing into '+account_id+' account')
     time.sleep(5)
     response = requests.post(
         'https://signin.aws.amazon.com/authenticate', headers=headers, data=data, verify=False)

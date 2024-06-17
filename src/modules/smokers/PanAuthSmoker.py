@@ -17,7 +17,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 # Setup the verbose logger
 # Setup the verbose logger
-logger = logging.getLogger('cloud-droid')
+logger = logging.getLogger('siras')
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Setup timestamp
@@ -37,7 +37,7 @@ def PanAuthSmoker():
         'Origin': pano_url,
         'Upgrade-Insecure-Requests': '1',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'droid (Security Incident Response Automated Simulations)',
+        'User-Agent': 'siras (Security Incident Response Automated Simulations)',
         'Referer': str(pano_url)+'/php/login.php',
     }
 
@@ -45,13 +45,13 @@ def PanAuthSmoker():
         'prot': 'https:',
         'server': 'vpn.company.com',
         'authType': 'init',
-        'user': 'droid-testing',
-        'passwd': 'droidtest',
+        'user': 'siras-testing',
+        'passwd': 'sirastest',
         'challengePwd': '',
         'ok': 'Log In'
     }
 
-    logger.info(iso_now_time + ' testing user: droid-testing')
+    logger.info(iso_now_time + ' testing user: siras-testing')
     time.sleep(5)
     response = requests.post(pano_url+'/php/login.php',
                              headers=headers, data=data, verify=False)
